@@ -39,9 +39,20 @@ img {
     color: wheat;
 }
 
+.play button {
+    background-color: red;
+    color: white;
+    font-size: large;
+    padding: 6px 8px;
+}
+
 #messageButton {
     display: block;
     margin: 0 auto;
+    background-color: red;
+    color: white;
+    font-size: large;
+    padding: 6px 8px;
 }
 
 .hidden {
