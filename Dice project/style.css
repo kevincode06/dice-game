@@ -44,6 +44,7 @@ img {
     color: white;
     font-size: large;
     padding: 6px 8px;
+    border-radius: 6px;
 }
 
 #messageButton {
@@ -53,6 +54,11 @@ img {
     color: white;
     font-size: large;
     padding: 6px 8px;
+    border-radius: 6px;
+}
+
+#message h3 {
+    color: wheat;
 }
 
 .hidden {
