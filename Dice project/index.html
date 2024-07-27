@@ -11,15 +11,17 @@
         <h1>Dice Game</h1>
         <div class="dice">
             <p class="Player1">Player1</p>
-            <img src="./image/dice-1.jpeg" alt="dice 6" class="img1">
+            <img src="./image/dice-1.jpeg" alt="dice 6" class="img1" id="dice">
+             <p>Score: <span id="player1Score">0</span></p>
         </div>
         <div class="dice">
             <p class="Player2">Player2</p>
-            <img src="./image/dice-2.jpeg" alt="dice 6" class="img2">
+            <img src="./image/dice-2.jpeg" alt="dice 6" class="img2" id="dice">
+            <p>Score: <span id="player2Score">0</span></p>
         </div>
     </div>
     <div class="play">
-        <button >Let's Play</button>
+        <button id="play">Let's Play</button>
     </div> <br>
     <button id="messageButton"> Game Rules</button>
     <div id="message" class="hidden"><h3>Instructions</h3><ol>
