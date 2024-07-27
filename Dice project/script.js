@@ -1,40 +1,52 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const diceImages = ["./image/dice-1.jpeg", "./image/dice-2.jpeg", "./image/dice-3.webp", "./image/dice-4.jpeg", "./image/dice-5.jpeg", "./image/dice-6.png"];
+  const diceImages = [
+    "./image/dice-1.jpeg",
+    "./image/dice-2.jpeg",
+    "./image/dice-3.webp",
+    "./image/dice-4.jpeg",
+    "./image/dice-5.jpeg",
+    "./image/dice-6.png",
+  ];
 
-  let img1 = document.querySelector('.img1');
-  let img2 = document.querySelector('.img2');
+  let img1 = document.querySelector(".img1");
+  let img2 = document.querySelector(".img2");
   const messageButton = document.getElementById("messageButton");
   const message = document.getElementById("message");
   let playButton = document.getElementById("playButton");
-  const dice1 = document.getElementById("dice1");
-  const dice2 = document.getElementById("dice2");
   const player1ScoreElement = document.getElementById("player1Score");
   const player2ScoreElement = document.getElementById("player2Score");
 
-  playButton.addEventListener('click', function() {
+  let player1Score = 0;
+  let player2Score = 0;
+
+  playButton.addEventListener("click", function () {
     let player1Roll = rollDie();
     let player2Roll = rollDie();
 
     img1.src = diceImages[player1Roll - 1];
     img2.src = diceImages[player2Roll - 1];
-});
 
-  messageButton.addEventListener("click", () => {
-    if (message.classList.contains("hidden")) {
-      message.classList.remove("hidden");
-    } else {
-      message.classList.add("hidden");
+    // Updates scores
+    if (player1Roll !== 1 && player2Roll !== 1) {
+      player1Score += player1Roll;
+      player2Score += player2Roll;
+    }
+
+    // Display the updated scores
+    player1ScoreElement.textContent = player1Score;
+    player2ScoreElement.textContent = player2Score;
+
+    // A condition to check if any player has reached 50 points
+    if (player1Score >= 50) {
+      alert("Player 1 wins!");
+      resetGame();
+    } else if (player2Score >= 50) {
+      alert("Player 2 wins!");
+      resetGame();
     }
   });
-});
 
-// Function to roll a die and return a number between 1 and 6.
-  function rollDie() {
-    return Math.floor(Math.random() * 6) + 1;
-  }
-rollDie();
-
-// Function to start the game.
+  // Function to start the game.
   function startGame() {
     let playerTurn = 1;
 
@@ -57,3 +69,27 @@ rollDie();
       }
     }
   }
+});
+
+  messageButton.addEventListener("click", () => {
+    if (message.classList.contains("hidden")) {
+      message.classList.remove("hidden");
+    } else {
+      message.classList.add("hidden");
+    }
+  });
+
+  // Function to roll a die and return a number between 1 and 6.
+  function rollDie() {
+    return Math.floor(Math.random() * 6) + 1;
+  }
+
+  // Function to reset the game
+  function resetGame() {
+    player1Score = 0;
+    player2Score = 0;
+    player1ScoreElement.textContent = player1Score;
+    player2ScoreElement.textContent = player2Score;
+    img1.src = diceImages[0];
+    img2.src = diceImages[1];
+}
