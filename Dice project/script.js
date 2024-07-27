@@ -1,11 +1,25 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const button = document.getElementById("messageButton");
+  const diceImages = ["./image/dice-1.jpeg", "./image/dice-2.jpeg", "./image/dice-3.webp", "./image/dice-4.jpeg", "./image/dice-5.jpeg", "./image/dice-6.png"];
+
+  let img1 = document.querySelector('.img1');
+  let img2 = document.querySelector('.img2');
+  const messageButton = document.getElementById("messageButton");
   const message = document.getElementById("message");
-  const playButton = document.getElementById("playButton");
+  let playButton = document.getElementById("playButton");
+  const dice1 = document.getElementById("dice1");
+  const dice2 = document.getElementById("dice2");
   const player1ScoreElement = document.getElementById("player1Score");
   const player2ScoreElement = document.getElementById("player2Score");
 
-  button.addEventListener("click", () => {
+  playButton.addEventListener('click', function() {
+    let player1Roll = rollDie();
+    let player2Roll = rollDie();
+
+    img1.src = diceImages[player1Roll - 1];
+    img2.src = diceImages[player2Roll - 1];
+});
+
+  messageButton.addEventListener("click", () => {
     if (message.classList.contains("hidden")) {
       message.classList.remove("hidden");
     } else {
