@@ -20,6 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let player2Score = 0;
 
   playButton.addEventListener("click", function () {
+    try {
     let player1Roll = rollDie();
     let player2Roll = rollDie();
 
@@ -44,6 +45,10 @@ document.addEventListener("DOMContentLoaded", () => {
       alert("Player 2 wins!");
       resetGame();
     }
+  } catch {
+    console.log("An error occured while pressing the play button:", error);
+    alert("An error occured while playing the game.Let's try again one more time.");
+  } 
   });
 
   // Function to start the game.
@@ -72,11 +77,16 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
   messageButton.addEventListener("click", () => {
+    try {
     if (message.classList.contains("hidden")) {
       message.classList.remove("hidden");
     } else {
       message.classList.add("hidden");
     }
+  } catch {
+    console.log("An error occured while trying to display the message:", error);
+    alert("An error occured while displaying the instructions. Please try again.");
+  }
   });
 
   // Function to roll a die and return a number between 1 and 6.
