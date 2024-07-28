@@ -1,20 +1,23 @@
+//images
 document.addEventListener("DOMContentLoaded", () => {
-  const diceImages = [
+  let diceImages = [
     "./image/dice-1.jpeg",
     "./image/dice-2.jpeg",
-    "./image/dice-3.webp",
+    "./image/dice-3.jpeg",
     "./image/dice-4.jpeg",
     "./image/dice-5.jpeg",
-    "./image/dice-6.png",
+    "./image/dice-6.jpeg",
   ];
+
+  // Selecting elements
 
   let img1 = document.querySelector(".img1");
   let img2 = document.querySelector(".img2");
-  const messageButton = document.getElementById("messageButton");
-  const message = document.getElementById("message");
+  let messageButton = document.getElementById("messageButton");
+  let message = document.getElementById("message");
   let playButton = document.getElementById("playButton");
-  const player1ScoreElement = document.getElementById("player1Score");
-  const player2ScoreElement = document.getElementById("player2Score");
+  let player1ScoreElement = document.getElementById("player1Score");
+  let player2ScoreElement = document.getElementById("player2Score");
 
   let player1Score = 0;
   let player2Score = 0;
