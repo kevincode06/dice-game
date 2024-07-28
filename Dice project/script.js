@@ -3,10 +3,10 @@ document.addEventListener("DOMContentLoaded", () => {
   let diceImages = [
     "./image/dice-1.jpeg",
     "./image/dice-2.jpeg",
-    "./image/dice-3.webp",
+    "./image/dice-3.jpeg",
     "./image/dice-4.jpeg",
     "./image/dice-5.jpeg",
-    "./image/dice-6.png",
+    "./image/dice-6.jpeg",
   ];
 
   // Selecting elements
